@@ -17,11 +17,11 @@ class MovieDAO:
         # return self.session.query(Movie).all() # между муви и ол, добавляем filter(Movie.year == filters['year']
         # return session.query(Movie).all()
     
-    def update(self, movie): # сюда передае data
-        # mid = data.pop('id')
-        # movie = self.get_one(mid)
-        # for field_name, field_value in data.items():
-            # setattr(movie, field_name, field_value)
+    def update(self, data): # сюда передае data
+        mid = data.pop('id')
+        movie = self.get_one(mid)
+        for field_name, field_value in data.items():
+            setattr(movie, field_name, field_value)
             ## вместо movie.name = data['name']
         
         self.session.add(movie)
