@@ -18,7 +18,7 @@ from views.movies import movie_ns
 def create_app(config):
     application = Flask(__name__)
     application.config.from_object(config)
-    application.app_context().push()
+    application.app_context().push() # почему этого не было? 
     configure_app(application)
 
     return application
