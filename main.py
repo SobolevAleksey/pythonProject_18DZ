@@ -4,6 +4,7 @@
 # pip install marshmallow (для создания схем) 
 # settings - project - python Interpetr - add - Existing -( путь до venv\Scripts\python.exe)
 # working directory - указываем нашу папку проекта 
+# db файл храниться в папке instance/ ставим галочку в all schemas/ aplly
 from flask import Flask
 from flask_restx import Api
 
