@@ -1,3 +1,8 @@
+# Консоль 
+# python -n venv venv (создает виртуальное окружение) 
+# pip install flask flask-restx flask-sqlalchemy ( устанавливаем алхимию) 
+# settings - project - python Interpetr - add - Existing -( путь до venv\Scripts\python.exe)
+# working directory - указываем нашу папку проекта 
 from flask import Flask
 from flask_restx import Api
 
