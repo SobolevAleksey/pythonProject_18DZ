@@ -11,14 +11,15 @@ from views.movies import movie_ns
 def create_app(config):
     application = Flask(__name__)
     application.config.from_object(config)
-    register_extensions(application)
+    application.app_context().push()
+    # configure_app(application)
 
     return application
 
 
-def register_extensions(application):
+def configure_app(application):
     db.init_app(application)
-    api = Api(app)
+    api = Api(app) # application
     api.add_namespace(movie_ns)  # books
     api.add_namespace(director_ns)  # directors
     api.add_namespace(genre_ns)  # genre
@@ -32,10 +33,10 @@ def create_data(app, db):
             db.session.add_all()
 
 
-app_config = Config()
-app = create_app(app_config)
-register_extensions(app)
+
 
 if __name__ == '__main__':
-
-    app.run(host="localhost", port=10001, debug=True)
+    app_config = Config()
+    app = create_app(app_config)
+    configure_app(app)
+    app.run(host="localhost", port=10001)
