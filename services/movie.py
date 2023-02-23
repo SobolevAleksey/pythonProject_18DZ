@@ -8,24 +8,24 @@ class MovieService:
     def get_all(self): # добавляем filters
         return self.dao.get_all() #  добавляем filters
 
-    def update(self, movie_data): # передается data
-        # self.dao.update(data)
-        # return self.dao
+    def update(self, data): # передается data
+        self.dao.update(data)
+        return self.dao
         
-        mid = movie_data.get('id')
-        movie = self.dao.get_one(mid)
-        if not movie:
-            return '', 404
+        #mid = movie_data.get('id')
+        #movie = self.dao.get_one(mid)
+        #if not movie:
+            #return '', 404
 
-        movie.title = movie_data.get('title')
-        movie.description = movie_data.get('description')
-        movie.trailer = movie_data.get('trailer')
-        movie.year = movie_data.get('year')
-        movie.rating = movie_data.get('rating')
-        movie.genre_id = movie_data.get('genre_id ')
-        movie.director_id = movie_data.get('director_id')
+        #movie.title = movie_data.get('title')
+        #movie.description = movie_data.get('description')
+        #movie.trailer = movie_data.get('trailer')
+        #movie.year = movie_data.get('year')
+        #movie.rating = movie_data.get('rating')
+        #movie.genre_id = movie_data.get('genre_id ')
+        #movie.director_id = movie_data.get('director_id')
 
-        self.dao.update(movie)
+        #self.dao.update(movie)
 
     def create(self, data):
         return self.dao.create(data)
