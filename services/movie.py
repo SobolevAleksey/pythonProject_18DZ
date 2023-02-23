@@ -8,7 +8,10 @@ class MovieService:
     def get_all(self):
         return self.dao.get_all()
 
-    def update(self, movie_data):
+    def update(self, movie_data): # передается data
+        # self.dao.update(data)
+        # return self.dao
+        
         mid = movie_data.get('id')
         movie = self.dao.get_one(mid)
         if not movie:
