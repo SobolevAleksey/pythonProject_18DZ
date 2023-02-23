@@ -39,18 +39,18 @@ class MoviesView(Resource):
 class MovieView(Resource):
     def get(self, mid: int):
         movie = movie_service.get_one(mid)
-        if not movie:
-            return '', 404
+        #if not movie:
+            #return '', 404
 
         return movie_schema.dump(movie), 200
 
     def put(self, mid: int):
         movie_data = request.json
         movie_data['id'] = mid
-        movie = movie_service.update(movie_data)
+        movie_service.update(movie_data)
         return '', 204
 
     def delete(self, mid: int):
-        movie = movie_service.delete(mid)
+        movie_service.delete(mid)
 
         return '', 204
