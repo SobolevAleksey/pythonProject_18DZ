@@ -25,18 +25,19 @@ def create_app(config):
 
 def configure_app(application):
     db.init_app(application)
-    api = Api(app) # application
+    api = Api(application) # app
     api.add_namespace(movie_ns)  # books
     api.add_namespace(director_ns)  # directors
     api.add_namespace(genre_ns)  # genre
+    # create_data(application, db)
 
 
 def create_data(app, db):
     with app.app_context():
         db.create_all()
 
-        with db.session.begin():
-            db.session.add_all()
+        # with db.session.begin():
+            # db.session.add_all()
 
 
 
