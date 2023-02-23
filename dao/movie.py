@@ -9,10 +9,15 @@ class MovieDAO:
         return self.session.query(Movie).get(mid)
 
     def get_all(self):
-        movie_list = self.session.query(Movie)
-        return movie_list
+        return self.session.query(Movie).all()
 
-    def update(self, movie):
+    def update(self, movie): # сюда передае data
+        # mid = data.pop('id')
+        # movie = self.get_one(mid)
+        # for field_name, field_value in data.items():
+            # setattr(movie, field_name, field_value)
+            ## вместо movie.name = data['name']
+        
         self.session.add(movie)
         self.session.commit()
 
@@ -28,8 +33,8 @@ class MovieDAO:
 
     def delete(self, mid):
         movie = self.session.query(Movie).get(mid)
-        if not movie:
-            return '', 404
+        # if not movie:
+            # return '', 404
 
         self.session.delete(movie)
         self.session.sommit()
