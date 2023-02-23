@@ -8,9 +8,15 @@ class MovieDAO:
     def get_one(self, mid):
         return self.session.query(Movie).get(mid)
 
-    def get_all(self):
-        return self.session.query(Movie).all()
-
+    def get_all(self): # добавляем filters
+        # if filters['director_id']:
+        return self.session.query(Movie).all() # между муви и ол, добавляем filter(Movie.director_id == filters['director_id']
+        # if filters['genre_id']:
+        # return self.session.query(Movie).all() # между муви и ол, добавляем filter(Movie.genre_id == filters['genre_id']
+        # if filters['year']:
+        # return self.session.query(Movie).all() # между муви и ол, добавляем filter(Movie.year == filters['year']
+        # return session.query(Movie).all()
+    
     def update(self, movie): # сюда передае data
         # mid = data.pop('id')
         # movie = self.get_one(mid)
