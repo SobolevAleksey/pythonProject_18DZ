@@ -13,20 +13,26 @@ movies_schema = MovieSchema(many=True)
 @movie_ns.route('/')
 class MoviesView(Resource):
     def get(self):
-        # movies = movie_service.get_all()
+        # movies = movie_service.get_all() # сюда передается filters 
         # result = movies_schema.dump(movies)
+        # return result, 200 
         director_id = request.args.get('director_id')
         genre_id = request.args.get('genre_id')
         year = request.args.get('year')
-        stmt = movie_service.get_all()
-        if director_id:
-            stmt = stmt.filter(Movie.director_id == director_id)
-        if genre_id:
-            stmt = stmt.filter(Movie.genre_id == genre_id)
-        if year:
-            stmt = stmt.filter(Movie.year == year)
-        movies = stmt.all()
-        return movies_schema.dump(movies), 200
+        stmt = movie_service.get_all() # этого нету
+        # filters = {
+        # 'director_id': director_id,
+        # 'genre_id': genre_id,
+        # 'year': year
+        # }
+        if director_id: # этого нету
+            stmt = stmt.filter(Movie.director_id == director_id) # этого нету
+        if genre_id: # этого нету
+            stmt = stmt.filter(Movie.genre_id == genre_id) # этого нету
+        if year: # этого нету
+            stmt = stmt.filter(Movie.year == year) # этого нету
+        movies = stmt.all() # этого нету
+        return movies_schema.dump(movies), 200 # этого нету
 
     def post(self):
         movie_data = request.json
