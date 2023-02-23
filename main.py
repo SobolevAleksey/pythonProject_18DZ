@@ -19,7 +19,7 @@ def create_app(config):
     application = Flask(__name__)
     application.config.from_object(config)
     application.app_context().push()
-    # configure_app(application)
+    configure_app(application)
 
     return application
 
@@ -30,7 +30,7 @@ def configure_app(application):
     api.add_namespace(movie_ns)  # books
     api.add_namespace(director_ns)  # directors
     api.add_namespace(genre_ns)  # genre
-    # create_data(application, db)
+    create_data(application, db)
 
 
 def create_data(app, db):
@@ -46,5 +46,4 @@ def create_data(app, db):
 if __name__ == '__main__':
     app_config = Config()
     app = create_app(app_config)
-    configure_app(app)
     app.run(host="localhost", port=10001)
