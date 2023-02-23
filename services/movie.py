@@ -5,8 +5,8 @@ class MovieService:
     def get_one(self, mid):
         return self.dao.get_one(mid)
 
-    def get_all(self):
-        return self.dao.get_all()
+    def get_all(self): # добавляем filters
+        return self.dao.get_all() #  добавляем filters
 
     def update(self, movie_data): # передается data
         # self.dao.update(data)
